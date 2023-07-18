@@ -1,0 +1,31 @@
+#server:
+#  port: 9090
+
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: wealth-app-apis
+  config:
+    import: "optional:configserver:http://localhost:8082"
+  datasource:
+    url: jdbc:mysql://localhost:3306/wealth_app_apis
+    username: root
+    password: Shivgaur@21
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+#spring:
+#  application:
+#    name: wealth-app-apis
+#  config:
+#    import: "optional:configserver:http://localhost:8082"

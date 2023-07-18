@@ -1,0 +1,20 @@
+server:
+  port: 8060
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: api-gateway
+  config:
+    import: "optional:configserver:http://localhost:8082"
+  cloud:
+    gateway:
+      routes:
+        - id: wealth-app-apis
+          uri: lb://wealth-app-apis
+          predicates:
+            - Path=/api/users/**
